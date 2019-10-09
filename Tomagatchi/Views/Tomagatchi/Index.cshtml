@@ -1,0 +1,24 @@
+<button onclick="Clicked(@Model, "Feed");"> Feed</button>
+<button onclick="Clicked(@Model, "PutToSleep");"> Put To Sleep</button>
+<button onclick="Clicked(@Model, "PlayWith");"> Play With </button>
+<p> Food Level: @Model.FoodLevel</p>
+<p> Food Level: @Model.SleepLevel</p>
+<p> Food Level: @Model.BoredomLevel</p>
+
+<script type= "text/javascript" language = "javascript">
+var autoload = setInterval(function(){
+    decrement(@Model);
+    location.reload(true)
+}, 4000);
+
+let decrement = function(object) {
+    object.Decrement("FoodLevel", 5);
+    object.Decrement("BoreddomLevel", 5);
+    object.Decrement("SleepLevel", 5);
+};
+function Clicked(object, functinoName){
+    object[functinoName];
+}
+autoload();
+</script>
+
